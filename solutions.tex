@@ -1,0 +1,90 @@
+\documentclass[solution]{tudexercise}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+
+%\setlength{\parindent}{0pt}
+
+\title{Mathematics for Machine Learning}
+\subtitle{Solution of the Exercises}
+\subsubtitle{Stefan Thaut (1800351)\\
+			Department 20 - Computer Science\\
+			\today}
+\author{Stefan Thaut}
+\date{\today}
+
+\newcommand{\qed}{\hspace*{\fill}$\square$}
+
+\begin{document}
+	\maketitle
+	
+	\setcounter{section}{1}
+	\section{Linear Algebra}
+		\subsection{}
+			\subsubsection{}
+				\begin{enumerate}
+				\item
+				We have to show, that $\mathbb{R} \setminus \{-1\}$ is closed under $*$, the associativity, the existence of a neutral and inverse elements and the commutativity.\\
+				For the closure of $\mathbb{R} \setminus \{-1\}$ we can use the closure of the addition and multiplication in $\mathbb{R}$. Then we have to show that there are no $a$ and $b$ in $\mathbb{R} \setminus \{-1\}$, so that $a * b = -1$.\\\\
+				Assuming that $\exists a, b \in \mathbb{R} \setminus \{-1\}$ with $a * b = -1$. Then it is
+				\begin{alignat*}{2}
+&&a * b = ab + a + b &= -1\\
+\Longleftrightarrow\quad &&ab + a &= -1 -b\\
+\Longleftrightarrow\quad &&a(b + 1) &= -(b + 1)\\
+\Longleftrightarrow\quad &&a &= -\frac{b + 1}{b + 1} = -1
+				\end{alignat*}
+				So we got a contradiction and that shows that there are no $a, b \in \mathbb{R} \setminus \{-1\}$ so that $a * b = -1$.\\
+				Consider $a, b, c \in \mathbb{R} \setminus \{-1\}$. Then it is
+				\begin{align*}
+(a * b) * c &= (ab + a + b) * c\\
+&= (ab + a + b)c + (ab + a + b) + c\\
+&= abc + ac + bc + ab + a + b + c\\
+&= abc + ab + ac + a + bc + b + c\\
+&= a(bc + b + c) + a + (bc + b + c)\\
+&= a * (bc + b + c) = a * (b * c)\\
+				\end{align*}
+				That shows the associativity of $*$.
+				\newpage
+				The neutral element is $0$, because: 
+				\begin{align*}
+a * 0 &= a \cdot 0 + a + 0 = 0 + a + 0 = a\ \text{and}\\
+0 * a &= 0 \cdot a + 0 + a = 0 + 0 + a = a
+				\end{align*}
+				for any $a \in \mathbb{R} \setminus \{-1\}$.\\
+				Consider $a^{-1} = -a / (a + 1)$. Then it is
+				\begin{align*}
+a * a^{-1} &= a * - \frac{a}{a + 1}\\
+&= a(- \frac{a}{a + 1}) + a + (- \frac{a}{a + 1})\\
+&= \frac{-a^2}{a + 1} + a - \frac{a}{a + 1}\\
+&= \frac{-a^2 - a}{a + 1} + \frac{a(a + 1)}{a + 1}\\
+&= \frac{-a^2 - a}{a + 1} + \frac{a^2 + a}{a + 1} = 0
+				\end{align*}
+				The proof of $a^{-1} * a = 0$ works analogously.\\
+				The proof of the commutativity is straight forward and based on the commutativity of the addition and multiplication in $\mathbb{R}$. Consider $a, b \in \mathbb{R} \setminus \{-1\}$. Then it is
+				\begin{align*}
+a * b = ab + a + b = ba + b + a = b * a
+				\end{align*}
+				So we have shown all axioms of an Abelian group. \qed
+				
+				\item
+				It is
+				\begin{align*}
+3 * x * x &= (3x + 3 + x) * x\\
+&= (4x + 3) * x\\
+&= (4x + 3)x + (4x + 3) + x\\
+&= 4x^2 + 3x + 4x + 3 + x = 4x^2 + 8x + 3
+				\end{align*}
+				We can now solve the quadtratic formula $4x^2 + 8x + 3 = 15 \Longleftrightarrow 4x^2 + 8x - 12 = 0$ using the completing the square method proposed by \textsc{Hoehn} in \cite{hoehn1975more}:
+				\begin{align*}
+x &= \frac{-8 \pm \sqrt{8^2 - 4 \cdot 4 \cdot (-12)}}{2 \cdot 4}\\
+&= \frac{-8 \pm \sqrt{64 + 192}}{8}\\
+&= \frac{-8 \pm \sqrt{256}}{8}\\
+&= \frac{-8 \pm 16}{8} = -1 \pm 2
+				\end{align*}
+				Thus the solution of the equation is $x_1 = -3$ and $x_2 = 1$.
+				\end{enumerate}
+	
+	\bibliography{build/bibliography}
+	\bibliographystyle{plain}
+
+\end{document}
