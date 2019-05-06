@@ -14,6 +14,7 @@
 \date{\today}
 
 \newcommand{\qed}{\hspace*{\fill}$\square$}
+\renewcommand{\labelenumi}{\arabic{enumi}.}
 
 \begin{document}
 	\maketitle
@@ -82,6 +83,89 @@ x &= \frac{-8 \pm \sqrt{8^2 - 4 \cdot 4 \cdot (-12)}}{2 \cdot 4}\\
 &= \frac{-8 \pm 16}{8} = -1 \pm 2
 				\end{align*}
 				Thus the solution of the equation is $x_1 = -3$ and $x_2 = 1$.
+				\end{enumerate}
+			
+			\subsubsection{}
+				\begin{enumerate}
+				\item
+				At first we have to be careful, because $(\mathbb{Z}_n, \oplus)$ would not be a group with the unmodified given mapping, because $\mathbb{Z}_n$ would not be closed under $\oplus$: Let $n = 3$, then $\mathbb{Z}_3 = \{\overline{0}, \overline{1}, \overline{2}\}$. So consider $\overline{1}, \overline{2} \in \mathbb{Z}_3$, then:
+				\begin{align*}
+\overline{1} \oplus \overline{2} = \overline{1 + 2} = \overline{3} \notin \mathbb{Z}_3
+				\end{align*}
+				Thus we have to modify the mapping by adding a modulo to the addition:
+				\begin{align}
+\overline{a} \oplus \overline{b} = \overline{a + b \mod n}
+				\end{align}
+				Now $\mathbb{Z}_n$ is closed under $\oplus$.\\
+				\begin{itemize}
+				\item[(Associativity)] Let $\overline{a}, \overline{b}, \overline{c} \in \mathbb{Z}_n$. Then it is
+				\begin{align*}
+(\overline{a} \oplus \overline{b}) \oplus \overline{c} &= \overline{a + b \mod n} \oplus \overline{c}\\
+&= \overline{(a + b \mod n) + c \mod n}\\
+&= \overline{a + b + c \mod n}\\
+&= \overline{a \mod n + (b + c \mod n)}\\
+&= \overline{a} \oplus \overline{b + c \mod n} = \overline{a} \oplus (\overline{b} \oplus \overline{c})\\
+				\end{align*}
+				
+				\item[(Neutral Element)]
+				The neutral element is $\overline{0} \in \mathbb{Z}_n$. Let $\overline{a} \in \mathbb{Z}_n$, then it is:
+				\begin{align*}
+\overline{a} \oplus \overline{0} = \overline{a + 0 \mod n} = \overline{a \mod n} = \overline{a}
+				\end{align*}
+				and
+				\begin{align*}
+\overline{0} \oplus \overline{a} = \overline{0 + a \mod n} = \overline{a \mod n} = \overline{a}
+				\end{align*}
+				
+				\item[(Inverse Element)]
+				Let $\overline{a} \in \mathbb{Z}_n$. Then the inverse element of $\overline{a}$ is $\overline{a}^{\,-1} = \overline{n - a}.$
+				It is
+				\begin{align*}
+\overline{a} \oplus \overline{a}^{\,-1} &= \overline{a} \oplus \overline{n - a}\\
+&= \overline{a + (n - a) \mod n}\\
+&= \overline{n \mod n} = \overline{0}\\
+				\end{align*}
+				The proof of $\overline{a}^{\,-1} \oplus \overline{a}$ works analogously.
+				
+				\item[(Commutativity)]
+				For the proof of the commutativity in $\mathbb{Z}_n$ we use the commutativity of the addition in $\mathbb{Z}$. Let $\overline{a}, \overline{b} \in \mathbb{Z}_n$. Then it is
+				\begin{align*}
+\overline{a} \oplus \overline{b} = \overline{a + b \mod n} = \overline{b + a \mod n} = \overline{b} \oplus \overline{a}
+				\end{align*}
+				\end{itemize}
+				We have shown, that $(\mathbb{Z}_n, \oplus)$ is an Abelian Group.\qed
+				
+				\item
+				Firstly we also have to modify the mapping for mathematical correctness:
+				\begin{align}
+\overline{a} \otimes \overline{b} = \overline{a \cdot b \mod n}
+				\end{align}
+				\begin{table}[h]
+					\centering
+					\caption{The times table of $\mathbb{Z}_5 \setminus \{\overline{0}\}$ under $\otimes$}
+					\label{tab:timesTableZ5}
+					\begin{tabular}{c|cccc}
+$\otimes$ & $\overline{1}$ & $\overline{2}$ & $\overline{3}$ & $\overline{4}$\\\hline
+$\overline{1}$ & $\overline{1}$ & $\overline{2}$ & $\overline{3}$ & $\overline{4}$\\
+$\overline{2}$ & $\overline{2}$ & $\overline{4}$ & $\overline{1}$ & $\overline{3}$\\
+$\overline{3}$ & $\overline{3}$ & $\overline{1}$ & $\overline{4}$ & $\overline{2}$\\
+$\overline{4}$ & $\overline{4}$ & $\overline{3}$ & $\overline{2}$ & $\overline{1}$\\
+					\end{tabular}
+				\end{table}
+				In table \ref{tab:timesTableZ5} we can see that for each elements $\overline{a}, \overline{b} \in \mathbb{Z}_5 \setminus \{\overline{0}\}$ the result of $\overline{a} \otimes \overline{b} \in \mathbb{Z}_5 \setminus \{\overline{0}\}$. The neutral element of this mapping is $\overline{1}$, because $\overline{a} \otimes \overline{1} = \overline{a \cdot 1 \mod 5} = \overline{a}$. We can read the inverse elements of each element in $\mathbb{Z}_5 \setminus \{\overline{0}\}$ out of table \ref{tab:timesTableZ5}, where the result is $\overline{1}$. And the commutativity follows directly from the commutativity of the multiplication in $\mathbb{Z}$.\qed
+				
+				\item
+				Consider $\overline{4} \in \mathbb{Z}_8 \setminus \{\overline{0}\}$. If we multiply $\overline{4}$ with all elements of $\mathbb{Z}_8 \setminus \{\overline{0}\}$, we get the following results:
+				\begin{align*}
+\overline{4} \otimes \overline{1} &= \overline{4} & \overline{4} \otimes \overline{2} &= \overline{0} & \overline{4} \otimes \overline{3} &= \overline{4} & \overline{4} \otimes \overline{4} &= \overline{0}\\
+\overline{4} \otimes \overline{5} &= \overline{4} & \overline{4} \otimes \overline{6} &= \overline{0} & \overline{4} \otimes \overline{7} &= \overline{4}\\
+				\end{align*}
+				Hence we see, that there is no inverse element of $\overline{4}$ in $\mathbb{Z}_8 \setminus \{\overline{0}\}$. Thus $(\mathbb{Z}_8 \setminus \{\overline{0}\})$ is not a group.\qed
+				
+				\item
+				The key point for showing that $(\mathbb{Z}_n \setminus \{\overline{0}\}, \otimes)$ is a group, is to show the existence of an inverse element for each element $\overline{a} \in \mathbb{Z}_n \setminus \{\overline{0}\}$.\\
+				Assuming $n \in \mathbb{N} \setminus \{0\}$ is prime. Hence $a$ and $n$ are relatively prime and with that we know from Bézout theorem that there are two integers $u$ and $v$ such that $au + nv = 1$. That implies $\overline{au} \otimes \overline{nv} = \overline{1}$ and also $\overline{a} \otimes \overline{u} = \overline{1}$. Thus the inverse element of $\overline{a}$ is $\overline{u}$.\\
+				Assuming $(\mathbb{Z}_n \setminus \{\overline{0}\}, \otimes)$ is a group. Also assuming $n$ is not prime, i.e. $\exists k, l \in \mathbb{N}$ such that $1 < k, l < n$ and $n = kl$. We see that $\overline{k}, \overline{l} \in \mathbb{Z}_n \setminus \{\overline{0}\}$. But it is $\overline{k} \otimes \overline{l} = \overline{k \cdot l \mod n} = \overline{n \mod n} = \overline{0} \notin \mathbb{Z}_n \setminus \{\overline{0}\}$. Hence $\mathbb{Z}_n \setminus \{\overline{0}\}$ would not be closed under $\otimes$ and would therefore be no group. Thus $n$ has to be prime.\qed
 				\end{enumerate}
 	
 	\bibliography{build/bibliography}
