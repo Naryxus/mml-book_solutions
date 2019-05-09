@@ -169,19 +169,145 @@ $\overline{4}$ & $\overline{4}$ & $\overline{3}$ & $\overline{2}$ & $\overline{1
 				\end{enumerate}
 			
 			\subsubsection{}
-				The given set of matrices with the standard matrix multiplication is not a group. Instead of finding a counter example, we can use theorem 4.1 to show, that all of the matrices in $\mathcal{G}$ are not invertible. Consider
-				\begin{align*}
-X = \begin{pmatrix}
+				\begin{itemize}
+				\item[(Closure)]
+					Consider two matrices of $\mathcal{G}$. Then it is
+					\begin{align*}
+\begin{pmatrix}
 1 & x & y\\
 0 & 1 & z\\
 0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}
+1 & k & l\\
+0 & 1 & m\\
+0 & 0 & 1
+\end{pmatrix} = \begin{pmatrix}
+1 & k + x & l + xm + y\\
+0 & 1 & m + z\\
+0 & 0 & 1
 \end{pmatrix} \in \mathcal{G}
-				\end{align*}
-				Then the determinant of $X$ is
-				\begin{align*}
+					\end{align*}
+				
+				\item[(Associativity)]
+					Consider three matrices of $\mathcal{G}$. Then it is
+					\begin{align*}
+\left(\begin{pmatrix}
+1 & x_1 & y_1\\
+0 & 1 & z_1\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}
+1 & x_2 & y_2\\
+0 & 1 & z_2\\
+0 & 0 & 1
+\end{pmatrix}\right)\begin{pmatrix}
+1 & x_3 & y_3\\
+0 & 1 & z_3\\
+0 & 0 & 1
+\end{pmatrix} &= \begin{pmatrix}
+1 & x_2 + x_1 & y_2 + x_1z_2 + y_1\\
+0 & 1 & z_2 + z_1\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}
+1 & x_3 & y_3\\
+0 & 1 & z_3\\
+0 & 0 & 1
+\end{pmatrix}\\
+&= \begin{pmatrix}
+1 & x_3 + x_2 + x_1 & y_3 + z_3x_2 + z_3x_1 + y_2 + x_1z_2 + y_1\\
+0 & 1 & z_3 + z_2 + z_1\\
+0 & 0 & 1
+\end{pmatrix}\\
+&= \begin{pmatrix}
+1 & (x_3 + x_2) + x_1 & (y_3 + z_3x_2 + y_2) + (z_3 + z_2)x_1 + y_1\\
+0 & 1 & (z_3 + z_2) + z_1\\
+0 & 0 & 1
+\end{pmatrix}\\
+&= \begin{pmatrix}
+1 & x_1 & y_1\\
+0 & 1 & z_1\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}
+1 & x_3 + x_2 & y_3 + z_3x_2 + y_2\\
+0 & 1 & z_3 + z_2\\
+0 & 0 & 1
+\end{pmatrix}\\
+&= \begin{pmatrix}
+1 & x_1 & y_1\\
+0 & 1 & z_1\\
+0 & 0 & 1
+\end{pmatrix}\left(\begin{pmatrix}
+1 & x_2 & y_2\\
+0 & 1 & z_2\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}
+1 & x_3 & y_3\\
+0 & 1 & z_3\\
+0 & 0 & 1
+\end{pmatrix}\right)
+					\end{align*}
+				
+				\item[(Neutral Element)]
+					The neutral element is the identity matrix, because it is
+					\begin{align*}
+\begin{pmatrix}
+1 & x & y\\
+0 & 1 & z\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix} = \begin{pmatrix}
+1 & x & y\\
+0 & 1 & z\\
+0 & 0 & 1
+\end{pmatrix} = \begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}
+1 & x & y\\
+0 & 1 & z\\
+0 & 0 & 1
+\end{pmatrix}
+					\end{align*}
+				
+				\item[(Inverse Element)]
+					For the existence of the inverse element, we can use theorem 4.1. It is
+					\begin{align*}
 \det(X) = 1 \cdot 1 \cdot 1 + x \cdot z \cdot 0 + y \cdot 0 \cdot 0 - y \cdot 1 \cdot 0 - x \cdot 0 \cdot 1 - 1 \cdot z \cdot 0 = 1 + 0 + 0 - 0 - 0 = 1
+					\end{align*}
+					As we can see it is $\det(X) = 1 \neq 0$ and with the help of theorem 4.1 we can imply that every matrix in $\mathcal{G}$ is invertible.
+				\end{itemize}
+				Hence all axioms for a group is fullfilled.\\
+				The group is not abelian, because it is
+				\begin{align*}
+\begin{pmatrix}
+1 & 2 & 0\\
+0 & 1 & 1\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}
+1 & 3 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix} = \begin{pmatrix}
+1 & 5 & 0\\
+0 & 1 & 1\\
+0 & 0 & 1
+\end{pmatrix} \neq \begin{pmatrix}
+1 & 7 & 3\\
+0 & 1 & 1\\
+0 & 0 & 1
+\end{pmatrix} = \begin{pmatrix}
+1 & 3 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}
+1 & 2 & 0\\
+0 & 1 & 1\\
+0 & 0 & 1
+\end{pmatrix}
 				\end{align*}
-				As we can see it is $\det(X) = 1 \neq 0$ and with the help of theorem 4.1 we can imply that $X$ is not invertible and thus there is no inverse element for any element in $\mathcal{G}$ and $(\mathcal{G}, \cdot)$ is no group.
 			
 			\subsubsection{}
 				At first we recall the definition of the matrix product in section 2.2.1. The matrix multiplication is defined for two matrices $A$ and $B$ as $C = AB \in \mathbb{R}^{k \times n}$ with $A \in \mathbb{R}^{k \times m}$ and $B \in \mathbb{R}^{m \times n}$. For the multiplication itself we can use the memory hook "row times column". For the first defined multiplication we write down the entire calculation, but for the further exercises we just provide the solutions.

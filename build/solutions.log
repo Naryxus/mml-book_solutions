@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.10.19)  9 MAY 2019 16:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.10.19)  10 MAY 2019 00:06
 entering extended mode
 **./solutions.tex
 (solutions.tex
@@ -1401,11 +1401,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 98--100
 Here is how much of TeX's memory you used:
  9767 strings out of 493312
  156501 string characters out of 3138895
- 332294 words of memory out of 3000000
+ 340294 words of memory out of 3000000
  13038 multiletter control sequences out of 15000+200000
  94472 words of font info for 82 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 59i,14n,75p,9118b,406s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 59i,15n,75p,9118b,406s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiK
 TeX 2.9/fonts/enc/dvips/base/8r.enc}{C:/Users/Stefan/AppData/Roaming/MiKTeX/2.9
 /fonts/enc/dvips/ly1/texnansi.enc}<C:/Program Files/tuddesign/fonts/type1/softm
@@ -1422,7 +1422,7 @@ pe1/mathdesign/mdbch/md-chri7m.pfb><C:/Users/Stefan/AppData/Roaming/MiKTeX/2.9/
 fonts/type1/mathdesign/mdbch/md-chrma.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/adobe/utopia/putri8a.pfb>
 Output written on C:\Users\Stefan\Documents\mml_book\build\solutions.pdf (5 pag
-es, 131492 bytes).
+es, 132603 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
